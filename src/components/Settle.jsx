@@ -23,14 +23,14 @@ export const Settle = ({ overlayValue, overlaySelector, nightLight, settleTxn, s
                             <div className="flex h-[40px] gap-1 items-center">
                                 <div className="w-[3px] h-full bg-blue-pink-3 rounded"></div>
                                 <p className="text-[26px]">Settling</p>
-                                <p className="text-[16px] px-2 bg-[#121234]">{settleTxn.id._hex}</p>
+                                <p className={`text-[16px] px-2 ${nightLight?'bg-[#121234]':'bg-slate-300'}`}>{settleTxn.id._hex}</p>
                             </div>
                             <button className={`w-10 rounded ${nightLight?'border-transparent':'border-2'}`} onClick={()=>{overlaySelector(0)}}><img src={cross} alt="" /></button>
                         </div>
                         <div className="flex flex-row p-2">
                             <div>
                                 <div className="flex h-[30px] mt-6 mb-2 gap-2 items-center text-[24px]">
-                                    <p className="bg-[#121234] rounded px-2 py-1">{parseFloat(settleTxn.amount.toString())/1e18} ETH</p>
+                                    <p className={` rounded px-2 py-1 ${nightLight?'bg-[#121234]':'bg-slate-300'}`}>{parseFloat(settleTxn.amount.toString())/1e18} ETH</p>
                                     <p className="text-gray-500">will be tranfered to</p>
                                 </div>
                                 <div className="flex gap-2 pl-4">
@@ -42,7 +42,7 @@ export const Settle = ({ overlayValue, overlaySelector, nightLight, settleTxn, s
                                 </div>
                                 <div className="flex gap-2 pl-4 mt-2 max-w-[500px] truncate items-center text-[20px]">
                                     <p className="text-gray-500">For </p>
-                                    <p className="bg-[#121234] rounded px-2 py-1">{settleTxn.message}</p>
+                                    <p className={`rounded px-2 py-1 ${nightLight?'bg-[#121234]':'bg-slate-300'}`}>{settleTxn.message}</p>
                                 </div>
                             </div>
                             <div className="flex flex-1 items-end justify-center pb-[20px]">
