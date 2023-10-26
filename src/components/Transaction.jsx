@@ -1,6 +1,7 @@
 import React from "react";
 import { AvatarGenerator } from 'random-avatar-generator';
 import { useStateContext } from "../context";
+import { paid, wait } from "../assets";
 
 const generator = new AvatarGenerator();
 
@@ -46,7 +47,7 @@ export function Transaction({ txn, nightLight, setSettleTxn, overlaySelector, al
                             <span className="text-[8px] px-2 py-0 text-gray-500">{txn.amount.toString()} Wei</span>
                         </div>
                     </div>
-                    <button className={`w-24 rounded h-7 flex items-center justify-center gap-1 ${txn.settled?'bg-[#121234]':' bg-blue-pink-3'}`} onClick={()=>{initSettling()}}>{txn.settled? <>Settled <img src="src\assets\paid.png" className="w-[20px]" alt="" /></>: <>Settle</> }</button>
+                    <button className={`w-24 rounded h-7 flex items-center justify-center gap-1 ${txn.settled?'bg-[#121234]':' bg-blue-pink-3'}`} onClick={()=>{initSettling()}}>{txn.settled? <>Settled <img src={paid} className="w-[20px]" alt="" /></>: <>Settle</> }</button>
                 </div>
             </div>
         }
@@ -82,12 +83,12 @@ export function Transaction({ txn, nightLight, setSettleTxn, overlaySelector, al
                     {txn.settled ? (
                         <div className={`flex items-center gap-1 rounded p-1 ${nightLight?'bg-[#121234]':'bg-gray-300'}`}>
                             <p className="font-epilogue px-2">Paid Off</p>
-                            <img src="src\assets\paid.png" className="w-[25px]" alt="wait" />
+                            <img src={paid} className="w-[25px]" alt="wait" />
                         </div>
                     ):(
                         <div className={`flex items-center gap-1 rounded p-1 ${nightLight?'bg-[#121234]':'bg-gray-300'}`}>
                             <p className="rounded font-epilogue px-2 bg-blue-pink-3 text-gray-400" >Yet to be Transit</p>
-                            <img src="src\assets\wait.png" className="w-[25px]" alt="wait" />
+                            <img src={wait} className="w-[25px]" alt="wait" />
                         </div>
                     )}
                 </div>

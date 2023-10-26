@@ -5,6 +5,7 @@ import { Transaction } from "./components/Transaction";
 import { data } from './txn';
 import { useStateContext } from "./context";
 import Loader from "./components/Loader";
+import { tasks } from "./assets";
 
 const generator = new AvatarGenerator();
 export function Dashboard({ nightLight, txns, setTxns, setSettleTxn, overlaySelector }){
@@ -18,7 +19,7 @@ export function Dashboard({ nightLight, txns, setTxns, setSettleTxn, overlaySele
             {(address && !loadingTxns) && 
                 <div className="flex items-center gap-2 px-[30px] pt-7">
                     <div className="w-[200px] rounded-full flex items-center justify-center">
-                        <img src="src/assets/tasks.png" className=" flex mx-2" alt="" />
+                        <img src={tasks} className=" flex mx-2" alt="" />
                     </div>
                     {/* <img src={generator.generateRandomAvatar()} className="h-40 m-4" alt="" /200*/}
                     <p className="text-xl m-2">No transactions that involves U!! record a new one via "add transaction" button</p>

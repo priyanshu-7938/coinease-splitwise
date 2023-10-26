@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { AvatarGenerator } from 'random-avatar-generator';
 import { useStateContext } from "./context";
+import { icn96 } from "./assets";
 
 export function Navbar({ nightLight }){
     const generator = new AvatarGenerator();
@@ -10,7 +11,7 @@ export function Navbar({ nightLight }){
       <>
         <div className={`rounded-[20px] navbar flex justify-between h-15 p-1 ${nightLight? 'bg-[#1c1c24]':''}`}>
           <div className="front flex items-center">
-            <img className="mx-2 h-14" src="src\assets\icn96.png" alt="bitcoin" />
+            <img className="mx-2 h-14" src={icn96} alt="bitcoin" />
             <p className={`mr-5 text-4xl font-epilogue mt-2 ${nightLight?'text-white':'text-[#333333]'}`}>Coin ease</p>
           </div>
           <div className="flex items-center gap-2">

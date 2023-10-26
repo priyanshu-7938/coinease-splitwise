@@ -3,6 +3,7 @@ import { Friend } from "./Friend";
 import { AvatarGenerator } from 'random-avatar-generator';
 import { useStateContext } from "./context";
 import Loader from "./components/Loader";
+import { alert, curlyArrow, txn } from "./assets";
 
 
 export function Friends({friends, loading, nightLight, myName, setMyName, overlaySelector, setPageLoading }){
@@ -14,10 +15,10 @@ export function Friends({friends, loading, nightLight, myName, setMyName, overla
             <>
             {!loading && address  && (
                 <div className="flex flex-col items-center gap-40 py-1 px-2">
-                        <img src="src\assets\alert.png" className="w-30" alt="" />
+                        <img src={alert} className="w-30" alt="" />
                         <div className="flex gap-3">
                             <p className="text-gray-700 text-xl">add new ?</p>
-                            <img src="src\assets\curly-arrow.png" alt="" className="w-[40px] h-[40px]" />
+                            <img src={curlyArrow} alt="" className="w-[40px] h-[40px]" />
                         </div>
                 </div>
             )}
@@ -68,7 +69,7 @@ export function Friends({friends, loading, nightLight, myName, setMyName, overla
                     <button className={`text-center w-1/3  ${nightLight?'rounded-br-[10px] border-1 bg-slate-600 h-[30px]':'bg-slate-300 rounded'}`} onClick={()=>{addFriend()}}>Add</button>
                 </div>
             </div>    
-            <button className={`w-full flex p-2 rounded-xl text-xl items-center justify-center ${nightLight?'bg-[#1c1c24] text-white font-epilogue mt-[5rem]':'bg-slate-300 mt-[5rem]'}`} onClick={()=>{overlaySelector(1)}}><img src="src\assets\txn.png" className="w-10 mr-2" alt=""/>Add Transaction</button>
+            <button className={`w-full flex p-2 rounded-xl text-xl items-center justify-center ${nightLight?'bg-[#1c1c24] text-white font-epilogue mt-[5rem]':'bg-slate-300 mt-[5rem]'}`} onClick={()=>{overlaySelector(1)}}><img src={txn} className="w-10 mr-2" alt=""/>Add Transaction</button>
         </div>
     )
 }

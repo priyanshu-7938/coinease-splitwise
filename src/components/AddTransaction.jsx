@@ -3,6 +3,7 @@ import { AvatarGenerator } from "random-avatar-generator";
 import { render } from "react-dom";
 import { useStateContext } from '../context' 
 import { ethers } from 'ethers';
+import { add2, cross, down, left, txn } from "../assets";
 
 export function AddTransaction({ overlayValue, overlaySelector, nightLight, friends, setPageLoading }){
     const grnerator = new AvatarGenerator();
@@ -63,7 +64,7 @@ export function AddTransaction({ overlayValue, overlaySelector, nightLight, frie
             return (<>
                 { (stateSet.has(item))?  
                     (<li key={item[0]} className="flex gap-2">
-                        <img src="src/assets/left.png" className="w-7 cursor-pointer" alt="" onClick={()=>{
+                        <img src={left} className="w-7 cursor-pointer" alt="" onClick={()=>{
                             removeFromSet(item);
                         }} />
                         <img src={grnerator.generateRandomAvatar(item[0])} className="w-4" alt="" />
@@ -80,7 +81,7 @@ export function AddTransaction({ overlayValue, overlaySelector, nightLight, frie
                     <li key={item[0]} className={`flex gap-2 items-center px-2 rounded m-[0.12rem] ${nightLight?'bg-[#121234] border-transparent':'bg-gray-300 border-2'}`}>
                         <img src={grnerator.generateRandomAvatar(item[0])} className="w-4" alt="" />
                         <p>{item[1]}</p>
-                        <img src="src/assets/cross.png" className="h-3" alt="img" onClick={()=>{
+                        <img src={cross} className="h-3" alt="img" onClick={()=>{
                             addToSet(item);
                         }}/>
                     </li>
@@ -128,10 +129,10 @@ export function AddTransaction({ overlayValue, overlaySelector, nightLight, frie
             <div className={`relative z-10 w-[50rem] h-[23rem] p-4 rounded shadow-md ${nightLight?'bg-[#131318]':'bg-white'}`}>
                 <div className="flex items-center justify-between mb-1">
                     <div className="flex gap-2 item-center">
-                        <img src="src\assets\txn.png" alt="" className="w-[35px]"/>
+                        <img src={txn} alt="" className="w-[35px]"/>
                         <p className="text-xl pt-1" >New Transaction</p>
                     </div>
-                    <button className={`w-10 rounded ${nightLight?'border-transparent':'border-2'}`} onClick={()=>{overlaySelector(0)}}><img src="src/assets/cross.png" alt="" /></button>
+                    <button className={`w-10 rounded ${nightLight?'border-transparent':'border-2'}`} onClick={()=>{overlaySelector(0)}}><img src={cross} alt="" /></button>
                 </div>
                 <div>
                     <div className="flex mb-3">
@@ -150,7 +151,7 @@ export function AddTransaction({ overlayValue, overlaySelector, nightLight, frie
                                 </>
                             }
                             <span onClick={()=>{document.getElementById("payerListSelection").classList.toggle("hidden");}}>
-                                <img className="w-5" src="src/assets/down.png"/>
+                                <img className="w-5" src={down}/>
                                 </span>
                         </p>
                         <ul id="payerListSelection" className ={`absolute hidden left-[17rem] top-[5.5rem] rounded-lg shadow-sm h-20 w-36 overflow-y-auto border ${nightLight?'bg-[#131318] border-[#333333]':'bg-white border-gray-300'}`}>
@@ -164,7 +165,7 @@ export function AddTransaction({ overlayValue, overlaySelector, nightLight, frie
                                 document.getElementById("spliterListSelection").classList.toggle("hidden");
                                 document.getElementById("add-cross").classList.toggle("cross")
                             }}>
-                            <img id="add-cross" src="src/assets/add2.png" className="w-7 h-7 ml-1 cursor-pointer" alt="" /> 
+                            <img id="add-cross" src={add2} className="w-7 h-7 ml-1 cursor-pointer" alt="" /> 
                         </span>
                         <ul id="spliterListSelection" className ={`px-2 hidden absolute left-[36.2rem] top-[8rem] border rounded-lg shadow-sm h-40 w-48 overflow-y-auto ${nightLight?'bg-[#131318] border-[#333333]':'bg-white border-gray-300'}`}>
                             {allSpliters}

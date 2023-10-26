@@ -1,6 +1,7 @@
 import React from "react";
 import { AvatarGenerator } from "random-avatar-generator";
 import { useStateContext } from "../context";
+import { cross } from "../assets";
 
 export const Settle = ({ overlayValue, overlaySelector, nightLight, settleTxn, setPageLoading })=>{
     const generator = new AvatarGenerator();
@@ -24,7 +25,7 @@ export const Settle = ({ overlayValue, overlaySelector, nightLight, settleTxn, s
                                 <p className="text-[26px]">Settling</p>
                                 <p className="text-[16px] px-2 bg-[#121234]">{settleTxn.id._hex}</p>
                             </div>
-                            <button className={`w-10 rounded ${nightLight?'border-transparent':'border-2'}`} onClick={()=>{overlaySelector(0)}}><img src="src/assets/cross.png" alt="" /></button>
+                            <button className={`w-10 rounded ${nightLight?'border-transparent':'border-2'}`} onClick={()=>{overlaySelector(0)}}><img src={cross} alt="" /></button>
                         </div>
                         <div className="flex flex-row p-2">
                             <div>

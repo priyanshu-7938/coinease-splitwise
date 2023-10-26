@@ -5,6 +5,7 @@ import { Friends } from './Friends'
 import { Dashboard } from './Dashboard'
 import { Overlay } from './Overlay'
 import { useStateContext } from './context' 
+import { bulb } from './assets'
 
   
 function App() {
@@ -68,7 +69,7 @@ function App() {
         setPageLoading={setPageLoading}
       />
       <div className={`absolute top-[90%] left-[20px] w-[50px] items-center justify-center rounded-full p-1 cursor-pointer z-50 ${nightLight?'bg-[#1c1c24]':'bg-[#c9c7c9]'}`} onClick={toggleLights}>
-        <img src="src\assets\bulb.png" alt="" />
+        <img src={bulb} alt="" />
       </div>
     </div>
   )
