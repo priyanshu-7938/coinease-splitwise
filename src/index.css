@@ -26,3 +26,14 @@
       transform: rotate(360deg);
   }
 }
+.scrollbar::-webkit-scrollbar {
+  width: 0em;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background-color: transparent;
+}

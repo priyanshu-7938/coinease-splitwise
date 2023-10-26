@@ -52,7 +52,7 @@ export function Dashboard({ nightLight, txns, setTxns, setSettleTxn, overlaySele
     return (
         <div className={`relative ${!address?'pointer-events-none opacity-30':''}`}>
             {loadingTxns?(<Loader/>):''}
-            <div className={`w-[32rem] h-full ${nightLight?' border-transparent rounded-[20px] bg-[#1c1c24] text-white':'border-4 rounded'}`}>
+            <div className={`w-[32rem] h-[85vh] ${nightLight?' border-transparent rounded-[20px] bg-[#1c1c24] text-white':'border-4 rounded'}`}>
                 <div className={` px-4 flex items-center justify-between ${nightLight?'rounded-t-[20px]':'bg-slate-300'}`}>
                     <p className={`text-4xl pb-2 mb-1 text-center pt-2 `}>Dashboard</p>
                     <label className="flex items-center space-x-2 cursor-pointer">
@@ -67,7 +67,7 @@ export function Dashboard({ nightLight, txns, setTxns, setSettleTxn, overlaySele
                         </span>
                     </label>
                 </div>
-                <div className="h-[calc(100%-3.5rem)] scroll-smooth scrollbar overflow-y-auto pr-0">
+                <div className="h-[calc(100%-4.3rem)] scroll-smooth scrollbar overflow-y-auto pr-0">
                     {txns ? txns.map((item,i)=><Transaction key={i} txn={item} nightLight={nightLight} setSettleTxn={setSettleTxn} overlaySelector={overlaySelector} all={all}/>): <Logs404/>}
                 </div>
             </div>
